@@ -3,10 +3,18 @@ import classes from './button.module.css';
 
 const Button = (props) => {
   const { link } = props;
+
+  if (link) {
+    return (
+      <Link href={link}>
+        <a className={classes.btn}>{props.children}</a>
+      </Link>
+    );
+  }
   return (
-    <Link href={link}>
-      <a className={classes.btn}>{props.children}</a>
-    </Link>
+    <button type={props.type} className={classes.btn} onClick={props.onClick}>
+      {props.children}
+    </button>
   );
 };
 
